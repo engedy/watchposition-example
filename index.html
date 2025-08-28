@@ -6,8 +6,14 @@ function startWatchingPosition() {
     pos => {
       let resultsDiv = document.getElementById("results");
       let row = document.createElement("div");
-      pos.coords.timestamp = pos.timestamp;
-      row.innerText = JSON.stringify(pos.coords);
+      row.innerText = JSON.stringify([
+        pos.timestamp,
+        pos.coords.latitude,
+        pos.coords.longitude,
+        pos.coords.accuracy,
+        pos.coords.speed,
+        pos.coords.heading,
+      ]);
       resultsDiv.append(row);
     },
     _ => {},
@@ -25,6 +31,7 @@ function startWatchingPosition() {
     </div>
     <div id="results">
       <div><strong>Results</strong></div>
+      <div>timestamp,latitude,longitude,accuracy,speed,heading</div>
     </div>
   </body>
 </html>
