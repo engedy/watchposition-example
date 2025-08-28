@@ -6,6 +6,7 @@ function startWatchingPosition() {
     pos => {
       let resultsDiv = document.getElementById("results");
       let row = document.createElement("div");
+      pos.coords.timestamp = pos.timestamp;
       row.innerText = JSON.stringify(pos.coords);
       resultsDiv.append(row);
     },
