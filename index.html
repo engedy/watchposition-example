@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script>
+function startWatchingPosition() {
+  navigator.geolocation.watchPosition(
+    pos => {
+      let resultsDiv = document.getElementById("results");
+      let row = document.createElement("div");
+      row.innerText = JSON.stringify(pos.coords);
+      resultsDiv.append(row);
+    },
+    _ => {});
+}
+</script>
+<meta charset="utf-8">
+  <title>Web Geolocation API watchPosition() example page</title>
+  <body>
+    <div>
+      <input value="Start" type="button" onclick="startWatchingPosition()"/>
+    </div>
+    <div id="results">
+      <div><strong>Results</strong></div>
+    </div>
+  </body>
+</html>
