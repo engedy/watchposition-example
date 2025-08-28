@@ -9,7 +9,11 @@ function startWatchingPosition() {
       row.innerText = JSON.stringify(pos.coords);
       resultsDiv.append(row);
     },
-    _ => {});
+    _ => {},
+    {
+      enableHighAccuracy: true
+    }
+  );
 }
 </script>
 <meta charset="utf-8">
